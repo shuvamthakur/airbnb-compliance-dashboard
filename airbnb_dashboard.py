@@ -23,25 +23,101 @@ st.markdown(
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 html, body, [class*="css"], .stApp {{ font-family: 'Inter Tight', sans-serif; color: {INK}; }}
-.stApp {{ background: #FBEEF0; }}
-#MainMenu, footer, header[data-testid="stHeader"] {{ visibility: hidden; height: 0; }}
+#MainMenu, footer {{ visibility: hidden; height: 0; }}
+header[data-testid="stHeader"] {{ background: transparent !important; z-index: 100 !important; }}
+div[data-testid="stSidebarCollapsedControl"] {{
+    display: block !important;
+    visibility: visible !important;
+}}
+div[data-testid="stSidebarCollapsedControl"] button {{
+    color: {RED_DARK} !important;
+    background: #FFFFFF !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15) !important;
+}}
 .block-container {{ padding: 1.5rem 2.5rem 3rem; max-width: 1400px; }}
 
 /* Sidebar */
 section[data-testid="stSidebar"] {{ background: {RED_DARK}; border-right: 0; }}
-section[data-testid="stSidebar"] .block-container {{ padding: 2rem 1.4rem; }}
-section[data-testid="stSidebar"] label p, section[data-testid="stSidebar"] label span,
-section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {{
-    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #FFFFFF !important; font-weight: 500;
+section[data-testid="stSidebar"] .block-container {{ padding: 1.8rem 1.4rem; }}
+
+/* Labels & Widget Headings */
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] p,
+section[data-testid="stSidebar"] [data-testid="stWidgetLabel"] label {{
+    font-size: 0.74rem !important; letter-spacing: 0.08em !important; text-transform: uppercase !important;
+    color: #FFFFFF !important; font-weight: 600 !important;
 }}
-section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] p {{ color: #FFFFFF !important; text-transform: none; letter-spacing: 0; font-size: 0.9rem; }}
-section[data-testid="stSidebar"] [data-testid="stSliderTickBarMin"], section[data-testid="stSidebar"] [data-testid="stSliderTickBarMax"],
-section[data-testid="stSidebar"] [data-testid="stSliderThumbValue"] {{ color: #FFFFFF !important; }}
-.side-brand {{ font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: #FFFFFF; line-height: 1.1; }}
+
+/* Radio Buttons */
+section[data-testid="stSidebar"] [data-testid="stRadio"] label,
+section[data-testid="stSidebar"] [data-testid="stRadio"] label p,
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] label span,
+section[data-testid="stSidebar"] [data-testid="stRadio"] [data-testid="stMarkdownContainer"] p {{
+    color: #FFFFFF !important; text-transform: none !important; letter-spacing: 0 !important;
+    font-size: 0.88rem !important; font-weight: 500 !important;
+}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[data-baseweb="radio"] div:first-child {{
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[data-baseweb="radio"][aria-checked="true"] div:first-child {{
+    border-color: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+}}
+
+/* Selectbox & Multiselect Containers */
+section[data-testid="stSidebar"] [data-baseweb="select"] > div {{
+    background-color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px !important;
+    color: {INK} !important;
+}}
+section[data-testid="stSidebar"] [data-baseweb="select"] input,
+section[data-testid="stSidebar"] [data-baseweb="select"] span {{
+    color: {INK} !important;
+}}
+section[data-testid="stSidebar"] [data-baseweb="select"] svg {{
+    fill: {INK} !important;
+}}
+
+/* Multiselect Tags */
+section[data-testid="stSidebar"] span[data-baseweb="tag"] {{
+    background: {RED} !important;
+    color: #FFFFFF !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+}}
+section[data-testid="stSidebar"] span[data-baseweb="tag"] span {{
+    color: #FFFFFF !important;
+}}
+section[data-testid="stSidebar"] span[data-baseweb="tag"] svg {{
+    fill: #FFFFFF !important;
+}}
+
+/* Slider */
+section[data-testid="stSidebar"] [data-testid="stSlider"] [data-testid="stWidgetLabel"] p {{
+    color: #FFFFFF !important;
+}}
+section[data-testid="stSidebar"] [data-testid="stSliderTickBarMin"],
+section[data-testid="stSidebar"] [data-testid="stSliderTickBarMax"],
+section[data-testid="stSidebar"] [data-testid="stSliderThumbValue"],
+section[data-testid="stSidebar"] [data-testid="stThumbValue"],
+section[data-testid="stSidebar"] div[data-testid="stSlider"] div[data-testid="stTickBar"] div {{
+    color: #FFFFFF !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.8rem !important;
+}}
+section[data-testid="stSidebar"] [data-testid="stSlider"] [role="slider"] {{
+    background-color: #FFFFFF !important;
+    border: 3px solid {RED} !important;
+}}
+
+/* Sidebar header & notes */
+.side-brand {{ font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 600; color: #FFFFFF; line-height: 1.1; }}
 .side-brand span {{ color: {RED_SOFT}; }}
-.side-note {{ font-size: 0.82rem; color: {RED_SOFT}; margin: 0.5rem 0 1.6rem; line-height: 1.45; }}
-span[data-baseweb="tag"] {{ background: {RED} !important; color: #fff !important; border-radius: 3px !important; }}
+.side-note {{ font-size: 0.82rem; color: {RED_SOFT}; margin: 0.5rem 0 1.4rem; line-height: 1.45; }}
+
 
 /* Masthead */
 .hero {{ background: {RED}; color: #FFFFFF; padding: 2rem 2.4rem 2.2rem; border-radius: 6px; margin-bottom: 1.2rem;
@@ -115,25 +191,45 @@ except FileNotFoundError:
 with st.sidebar:
     st.markdown('<div class="side-brand">STRA<span>.</span>Watch</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="side-note">Set the filters to narrow down the listings.</div>',
+        '<div class="side-note">Filter criteria to identify commercial short-stay operations.</div>',
         unsafe_allow_html=True,
     )
+    
+    # 1. Area (LGA)
     all_lgas = sorted(df["lga"].dropna().unique().tolist())
     selected_lgas = st.multiselect("Area (LGA)", options=all_lgas, default=[], placeholder="All areas")
+    
+    # 2. Room Type (Essential for the 78% Entire Home story)
+    room_types = ["All Room Types", "Entire home/apt", "Private room", "Shared / Hotel room"]
+    selected_room_type = st.selectbox("Room Type", options=room_types, index=0)
+
+    # 3. Host Scale
     host_scale = st.radio(
         "Host scale",
         ["All Hosts", "Single-Listing (Mom & Pop)", "Multi-Listing (Commercial)"],
         index=2,
     )
+    
+    # 4. Licence Status
     selected_license = st.selectbox(
         "Licence status", ["All", "Has License (PID-STRA)", "Exempt", "Missing/Unlicensed"], index=0
     )
+    
+    # 5. Availability Slider
     min_avail = st.slider("Min. calendar availability (days)", 0, 365, 180)
 
 # --- FILTERS ---
 f = df.copy()
 if selected_lgas:
     f = f[f["lga"].isin(selected_lgas)]
+
+if selected_room_type == "Entire home/apt":
+    f = f[f["room_type"] == "Entire home/apt"]
+elif selected_room_type == "Private room":
+    f = f[f["room_type"] == "Private room"]
+elif selected_room_type == "Shared / Hotel room":
+    f = f[f["room_type"].isin(["Shared room", "Hotel room"])]
+
 if host_scale == "Single-Listing (Mom & Pop)":
     f = f[~f["is_multi_host"]]
 elif host_scale == "Multi-Listing (Commercial)":
@@ -141,11 +237,11 @@ elif host_scale == "Multi-Listing (Commercial)":
 
 lic = f["license"].astype(str)
 if selected_license == "Exempt":
-    f = f[lic.str.contains("Exempt", case=False, na=False)]
+    f = f[lic.str.contains("Exempt", case=False, na=False) | (f["license_status"] == "self-declared exempt")]
 elif selected_license == "Missing/Unlicensed":
-    f = f[f["license"].isna() | (lic.str.strip() == "")]
+    f = f[(f["license_status"] == "no license info") | f["license"].isna() | (lic.str.strip().isin(["", "nan"]))]
 elif selected_license == "Has License (PID-STRA)":
-    f = f[lic.str.contains("PID-STRA", case=False, na=False)]
+    f = f[lic.str.contains("PID-STRA", case=False, na=False) | (f["license_status"] == "registered (PID-STRA)")]
 f = f[f["availability_365"] >= min_avail]
 
 # --- MASTHEAD ---
