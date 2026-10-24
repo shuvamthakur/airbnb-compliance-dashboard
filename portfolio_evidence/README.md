@@ -2,7 +2,7 @@
 **Student:** Shuvam Thakur (Student ID: 26619344)  
 **Subject:** Data Driven Storytelling Studio (95563)  
 **Project:** Sydney Short-Term Rental Accommodation (STRA) Screening & Market Compliance  
-**Group:** Team 7  
+**Group:** Viz Wizards (Team 7)  
 
 This repository contains the complete chronological evidence portfolio for Shuvam Thakur's contributions to the Data Driven Storytelling Studio across Weeks 1 to 12.
 
